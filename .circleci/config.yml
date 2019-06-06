@@ -1,23 +1,21 @@
 version: 2
 jobs:
-  run_tests:
+  test:
     working_directory: ~/project
     docker:
       - image: circleci/python:3.7.2
     steps:
-      -checkout
-      -run:
-        name: Running tests
-        command: |
-          virtualenv env
-          . venv/bin/activate
-          pip install --upgrade pip
-          pip install pytest
-
-          pytest
-
+      - checkout
+      - run:
+          name: Runnning tests
+          command: |
+            virtualenv venv
+            . venv/bin/activate
+            pip install --upgrade pip
+            pip install pytest
+            pytest
 workflows:
   version: 2
   test-all:
     jobs:
-      - run_tests
+      - test
