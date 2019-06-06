@@ -1,0 +1,7 @@
+# Virtual env
+env
+
+# Cache
+__pycache__
+
+.pytest_cache
